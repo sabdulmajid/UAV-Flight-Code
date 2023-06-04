@@ -13,5 +13,13 @@ vehicle.simple_takeoff(10)
 # Monitor the drone's altitude
 while True:
     print("Altitude: ", vehicle.location.global_relative_frame.alt)
+    if vehicle.location.global_relative_frame.alt >= 10 * 0.95:
+        print("Target altitude reached")
+        break
+    time.sleep(1)
 
-# Simulation to ask drone to go from one point to another
+# Land the simulated drone
+vehicle.mode = VehicleMode("LAND")
+
+# Close the simulated drone connection
+vehicle.close()
