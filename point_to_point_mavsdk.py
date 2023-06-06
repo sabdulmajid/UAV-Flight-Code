@@ -26,3 +26,18 @@ async def run():
     end_latitude = 28.382503
     end_longitude = 36.482018
     end_altitude = 0
+
+    # Go to the start waypoint
+    print("Going to start waypoint...")
+    await drone.action.goto_location(start_latitude, start_longitude, start_altitude, 0)
+
+    # Wait until the drone reaches the start waypoint
+    async for position in drone.telemetry.position():
+        if (
+            abs(position.latitude_deg - start_latitude) < 0.000001 and
+            abs(position.longitude_deg - start_longitude) < 0.000001 and
+            abs(position.absolute_altitude_m - start_altitude) < 0.1
+        ):
+            break
+
+    print("Reached start waypoint.")
