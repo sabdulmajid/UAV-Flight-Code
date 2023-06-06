@@ -1,7 +1,7 @@
 import time
 from pymavlink import mavutil
 
-master = mavutil.mavlink_connection("udpout:192.168.1.103:14552")
+master = mavutil.mavlink_connection("tcp:127.0.0.1:5760")
 
 master.mav.ping_send(
     int(time.time() * 1e6), # Unix time in microseconds
