@@ -18,3 +18,11 @@ async def run():
             print("Drone is not in the air. Please take off before running this script.")
             return
 
+    # Define the start and end waypoints
+    start_latitude = 28.382731
+    start_longitude = 36.482608
+    start_altitude = 0
+
+    end_latitude = 28.382503
+    end_longitude = 36.482018
+    end_altitude = 0
