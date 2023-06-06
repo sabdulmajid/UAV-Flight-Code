@@ -14,12 +14,6 @@ end_latitude = 28.382503
 end_longitude = 36.482018
 end_altitude = 0
 
-# Set the home position
-vehicle.mav.command_long_send(
-    vehicle.target_system, vehicle.target_component,
-    mavutil.mavlink.MAV_CMD_DO_SET_HOME, 0, 0, 0, 0,
-    start_latitude, start_longitude, start_altitude)
-
 # Arm the vehicle
 vehicle.wait_heartbeat()
 vehicle.mav.command_long_send(
