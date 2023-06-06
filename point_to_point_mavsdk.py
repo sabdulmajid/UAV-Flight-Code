@@ -12,3 +12,9 @@ async def run():
         if not is_armed:
             print("Drone is not armed. Please arm the drone before running this script.")
             return
+
+    async for in_air in drone.telemetry.in_air():
+        if not in_air:
+            print("Drone is not in the air. Please take off before running this script.")
+            return
+
