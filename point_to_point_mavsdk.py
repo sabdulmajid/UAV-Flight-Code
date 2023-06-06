@@ -56,3 +56,6 @@ async def run():
             break
 
     print("Reached end waypoint.")
+
+    # Hover for a few seconds before landing
+    await asyncio.sleep(5)
