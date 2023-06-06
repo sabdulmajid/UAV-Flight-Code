@@ -59,3 +59,14 @@ async def run():
 
     # Hover for a few seconds before landing
     await asyncio.sleep(5)
+
+    # Land the drone
+    print("Landing...")
+    await drone.action.land()
+
+    # Wait until the drone lands
+    async for in_air in drone.telemetry.in_air():
+        if not in_air:
+            break
+
+    print("Drone landed.")
