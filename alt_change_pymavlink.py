@@ -10,9 +10,13 @@ print("Drone Playground Simulation")
 print("Prepare for takeoff!")
 
 # Set the vehicle mode to GUIDED
+mode_id = mavutil.mavlink.MAV_MODE_FLAG_CUSTOM_MODE_ENABLED
+custom_mode = mavutil.mavlink.MAV_MODE_FLAG_GUIDED_ENABLED
 mav.mav.set_mode_send(
-    mavutil.mavlink.MAV_MODE_FLAG_CUSTOM_MODE_ENABLED, 
-    mavutil.mavlink.MAV_MODE_GUIDED)
+    mav.target_system,
+    mode_id,
+    custom_mode
+)
 
 # Arm the vehicle
 mav.mav.command_long_send(
