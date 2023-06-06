@@ -41,3 +41,7 @@ async def run():
             break
 
     print("Reached start waypoint.")
+
+    # Go to the end waypoint
+    print("Going to end waypoint...")
+    await drone.action.goto_location(end_latitude, end_longitude, end_altitude, 0)
