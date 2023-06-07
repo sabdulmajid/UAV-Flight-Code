@@ -14,5 +14,4 @@ while True:
 print(f"Autopilot: {msg.autopilot}")
 print(f"System status: {msg.system_status}")
 
-# Close the connection to the vehicle
 vehicle.close()
