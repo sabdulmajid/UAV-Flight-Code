@@ -2,11 +2,11 @@ from pymavlink import mavutil
 import time
 
 # Connect to the simulated drone
-connection_string = 'tcp:127.0.0.1:5760'
+connection_string = 'tcp:127.0.0.1:5760' # Have to change this to IP of the RP4, which will be connected with ttyACM0
 mav = mavutil.mavlink_connection(connection_string)
 
 # Print welcome message
-print("Drone Playground Simulation")
+print("Drone TakeOff Testing")
 print("Prepare for takeoff!")
 
 # Set the vehicle mode to GUIDED
@@ -26,7 +26,7 @@ mav.mav.command_long_send(
     0, 1, 0, 0, 0, 0, 0, 0)
 
 # Take off to a desired height
-target_altitude = 15  # Desired altitude in meters
+target_altitude = 1  # Desired altitude in meters
 print("Taking off...")
 mav.mav.command_long_send(
     mav.target_system, 
@@ -37,7 +37,7 @@ mav.mav.command_long_send(
 # Ascend and provide altitude updates
 while True:
     msg = mav.recv_match(type='GLOBAL_POSITION_INT', blocking=True)
-    altitude = msg.alt / 1000.0  # Altitude is in millimeters
+    altitude = msg.alt / 1000.0  # Altitude is in millimeters -----------> Double check this on the pymavlink docs!
     print("Ascending - Current altitude: %.2f meters" % altitude)
     if altitude >= target_altitude * 0.95:
         print("Reached the desired height of %d meters!" % target_altitude)
@@ -55,7 +55,7 @@ mav.mav.command_long_send(
 # Wait until the vehicle has landed
 while True:
     msg = mav.recv_match(type='GLOBAL_POSITION_INT', blocking=True)
-    altitude = msg.alt / 1000.0  # Altitude is in millimeters
+    altitude = msg.alt / 1000.0  # Altitude is in millimeters -----------> Double check this on the pymavlink docs!
     if altitude <= 0.2:  # Assuming landing is complete when altitude is close to 0
         print("Drone has landed successfully!")
         break

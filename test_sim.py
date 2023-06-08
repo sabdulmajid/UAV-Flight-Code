@@ -1,5 +1,6 @@
 # test_sim.py
-from dronekit import connect
+from dronekit import connect, VehicleMode
+import time
 
 # Connect to the simulated drone
 vehicle = connect('tcp:127.0.0.1:5760', wait_ready=True)
