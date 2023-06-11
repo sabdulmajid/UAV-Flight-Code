@@ -18,3 +18,26 @@ while True:
     except:
         pass
     time.sleep(0.1)
+
+
+"""
+Example of a parse tree for the sentence: "Add the values of variables 'a' and 'b' and store the result in variable 'c'"
+
+                         Sentence
+                            |
+                +-----------+------------+
+                |                        |
+             Action                  Assignment
+                |                        |
+          +-----+-----+          +-------+-------+
+          |           |          |               |
+        Add         Value      Identifier      Identifier
+          |           |          |               |
+      +---+---+       |          |               |
+      |       |     Variables    a               b
+    Values               |
+      |                  |
+  +---+---+              c
+  |       |
+  a       b
+"""
