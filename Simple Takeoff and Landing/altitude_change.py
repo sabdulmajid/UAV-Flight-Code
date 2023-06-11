@@ -5,7 +5,7 @@ from dronekit import connect, VehicleMode
 vehicle = connect('tcp:127.0.0.1:5760', wait_ready=True)
 
 # Print welcome message
-print("Drone Playground Simulation")
+print("Drone Takeoff Code")
 print("Prepare for takeoff!")
 
 # Set the vehicle mode to GUIDED
@@ -15,7 +15,7 @@ vehicle.mode = VehicleMode("GUIDED")
 vehicle.armed = True
 
 # Take off to a desired height
-target_altitude = 15  # Desired altitude in meters
+target_altitude = 1  # Desired altitude in meters
 print("Taking off...")
 vehicle.simple_takeoff(target_altitude)
 
@@ -45,4 +45,4 @@ vehicle.armed = False
 vehicle.close()
 
 # Shutdown complete
-print("Turning off the drone playground. Goodbye!")
+print("Turning off the drone. Goodbye!")
