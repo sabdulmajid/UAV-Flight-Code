@@ -18,6 +18,7 @@ vehicle.close()
 
 
 """
+
 This code snippet appears to be MIPS assembly code. Let's go through it step by step to understand its purpose and functionality.
 
 1. `lis $8`
@@ -48,4 +49,5 @@ This instruction stores the value in register `$8` (which is 7) into memory. The
 This instruction is a jump register instruction that returns control flow to the instruction at the address stored in register `$31`. It effectively ends the execution of this code snippet.
 
 In summary, this code snippet takes an array's address in register `$1` and the number of elements in the array in register `$2`. It calculates the address of the last element in the array by multiplying the number of elements by 4 (assuming each element occupies 4 bytes) and adding it to the array's base address. Finally, it stores the value 7 in the last possible spot in the array.
+
 """
