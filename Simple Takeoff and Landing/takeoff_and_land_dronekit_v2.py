@@ -2,7 +2,7 @@ import time
 from dronekit import connect, VehicleMode
 
 # Connect to the Pixhawk
-connection_string = '/dev/ttyAMA0'  # Update with your actual connection string
+connection_string = '/dev/ttyAMA0' 
 vehicle = connect(connection_string, wait_ready=True)
 
 # Arm the vehicle and wait for arming confirmation
@@ -14,14 +14,14 @@ while not vehicle.armed:
 print("Vehicle armed!")
 
 # Set the mode to guided
-vehicle.mode = VehicleMode("GUIDED")
+vehicle.mode = VehicleMode("STABLIZE")
 
 # Takeoff to a specified altitude (in meters)
-target_altitude = 10  # Update with your desired altitude
+target_altitude = 1
 vehicle.simple_takeoff(target_altitude)
 
 while True:
-    print("Altitude: ", vehicle.location.global_relative_frame.alt)
+    print("Altitude: ", vehicle.location.global_relative_frame.alt) # Requires the GPS!
 
     if vehicle.location.global_relative_frame.alt >= target_altitude * 0.95:
         print("Target altitude reached!")
