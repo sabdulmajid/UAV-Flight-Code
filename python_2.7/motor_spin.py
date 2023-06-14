@@ -2,12 +2,12 @@ from dronekit import connect, VehicleMode
 import time
 
 # Connect to the vehicle
-connection_string = '/dev/ttyAMA0'  # Replace with the appropriate serial port
+connection_string = '/dev/ttyAMA0'
 vehicle = connect(connection_string, wait_ready=True, baud=57600)
 
 # Arm and takeoff
 print "Arming motors"
-vehicle.mode = VehicleMode("GUIDED")
+vehicle.mode = VehicleMode("GUIDED") # Might have to set it to "STABILIZE" for indoor testing without GPS
 vehicle.armed = True
 while not vehicle.armed:
     print "Waiting for arming..."
@@ -18,7 +18,7 @@ vehicle.simple_takeoff(2)  # Replace 2 with your desired target altitude (in met
 
 # Wait until target altitude is reached
 while vehicle.location.global_relative_frame.alt < 2:  # Replace 2 with your desired target altitude (in meters)
-    print "Altitude: {} meters".format(vehicle.location.global_relative_frame.alt)
+    print "Altitude: {} meters".format(vehicle.location.global_relative_frame.alt) # Python 2.7 code...this is not Python 3 compatible
     time.sleep(1)
 
 # Spin the motors -> not sure if the channel values are the same
