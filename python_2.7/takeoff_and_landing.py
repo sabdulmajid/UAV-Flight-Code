@@ -7,14 +7,14 @@ vehicle = connect(connection_string, wait_ready=True, baud=57600)
 
 # Arm and takeoff
 print "Arming motors"
-vehicle.mode = VehicleMode("GUIDED") # Might have to set it to "STABILIZE" for indoor testing without GPS
+vehicle.mode = VehicleMode("STABILIZE") # Might have to set it to "STABILIZE" for indoor testing without GPS
 vehicle.armed = True
 while not vehicle.armed:
     print "Waiting for arming..."
     time.sleep(1)
 
 print "Taking off"
-vehicle.simple_takeoff(1)  # Replace 2 with your desired target altitude (in meters)
+vehicle.simple_takeoff(1)  # Target altitute (in meters)
 
 # Wait until target altitude is reached
 while vehicle.location.global_relative_frame.alt < 2:  # Replace 2 with your desired target altitude (in meters)
