@@ -2,7 +2,7 @@ import time
 from pymavlink import mavutil
 
 # Establish a connection to the autopilot (change the connection string accordingly)
-connection_string = '/dev/ttyUSB0'  # Example connection string for a serial connection -> have to find this from the Raspberry Pi 4 connection with the PixHawk 4
+connection_string = '/dev/ttyAMA0' # /dev/ttyS0  # Example connection string for a serial connection -> have to find this from the Raspberry Pi 4 connection with the PixHawk 4
 # Alternatively, for UDP connection:
 # connection_string = 'udp:127.0.0.1:14550'
 # For TCP connection:

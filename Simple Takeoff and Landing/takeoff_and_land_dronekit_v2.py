@@ -2,7 +2,7 @@ import time
 from dronekit import connect, VehicleMode
 
 # Connect to the Pixhawk
-connection_string = '/dev/ttyAMA0' 
+connection_string = '/dev/ttyAMA0' # /dev/ttyS0
 vehicle = connect(connection_string, wait_ready=True)
 
 # Arm the vehicle and wait for arming confirmation

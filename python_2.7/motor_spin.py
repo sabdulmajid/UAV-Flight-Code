@@ -2,7 +2,7 @@ from dronekit import connect, VehicleMode
 import time
 
 # Connect to the vehicle
-connection_string = '/dev/ttyAMA0'
+connection_string = '/dev/ttyAMA0' # /dev/ttyS0
 vehicle = connect(connection_string, wait_ready=True, baud=57600)
 
 # Arm and takeoff

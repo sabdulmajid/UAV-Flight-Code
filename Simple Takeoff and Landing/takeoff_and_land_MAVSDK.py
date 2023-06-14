@@ -1,7 +1,7 @@
 import mavsdk
 
 # Create a connection to the vehicle
-vehicle = mavsdk.connect('/dev/ttyAMA0', baud=57600)
+vehicle = mavsdk.connect('/dev/ttyAMA0', baud=57600) # /dev/ttyS0
 
 # Wait for the vehicle to connect
 while not vehicle.is_connected():
