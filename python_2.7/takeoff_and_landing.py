@@ -14,7 +14,7 @@ while not vehicle.armed:
     time.sleep(1)
 
 print "Taking off"
-vehicle.simple_takeoff(2)  # Replace 2 with your desired target altitude (in meters)
+vehicle.simple_takeoff(1)  # Replace 2 with your desired target altitude (in meters)
 
 # Wait until target altitude is reached
 while vehicle.location.global_relative_frame.alt < 2:  # Replace 2 with your desired target altitude (in meters)
