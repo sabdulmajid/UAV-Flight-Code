@@ -166,8 +166,8 @@ set_attitude(duration = 5)
 # Uncomment the lines below for testing roll angle and yaw rate.
 # Make sure that there is enough space for testing this.
 
-set_attitude(roll_angle = 1, thrust = 0.5, duration = 3)
-set_attitude(yaw_rate = 30, thrust = 0.5, duration = 3)
+# set_attitude(roll_angle = 1, thrust = 0.5, duration = 3)
+# set_attitude(yaw_rate = 30, thrust = 0.5, duration = 3)
 
 # Move the drone forward and backward.
 # Note that it will be in front of original position due to inertia.
