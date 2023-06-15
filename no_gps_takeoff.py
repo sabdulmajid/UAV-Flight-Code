@@ -171,11 +171,11 @@ set_attitude(yaw_rate = 30, thrust = 0.5, duration = 3)
 
 # Move the drone forward and backward.
 # Note that it will be in front of original position due to inertia.
-# print("Move forward")
-# set_attitude(pitch_angle = -5, thrust = 0.5, duration = 3.21)
+print("Move forward")
+set_attitude(pitch_angle = -5, thrust = 0.5, duration = 3.21)
 
-# print("Move backward")
-# set_attitude(pitch_angle = 5, thrust = 0.5, duration = 3)
+print("Move backward")
+set_attitude(pitch_angle = 5, thrust = 0.5, duration = 3)
 
 
 print("Setting LAND mode...")
