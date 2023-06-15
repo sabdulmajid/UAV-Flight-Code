@@ -25,7 +25,7 @@ import math
 # parser = argparse.ArgumentParser(description='Control Copter and send commands in GUIDED mode ')
 # parser.add_argument('--connect',
 #                    help="Vehicle connection target string. If not specified, SITL automatically started and used.")
-args = parser.parse_args()
+# args = parser.parse_args()
 
 connection_string = '/dev/ttyAMA0'
 sitl = None
