@@ -22,7 +22,7 @@ import math
 
 # Set up option parsing to get connection string
 # import argparse
-parser = argparse.ArgumentParser(description='Control Copter and send commands in GUIDED mode ')
+# parser = argparse.ArgumentParser(description='Control Copter and send commands in GUIDED mode ')
 parser.add_argument('--connect',
                    help="Vehicle connection target string. If not specified, SITL automatically started and used.")
 args = parser.parse_args()
