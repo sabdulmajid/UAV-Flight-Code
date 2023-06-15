@@ -59,7 +59,7 @@ def arm_and_takeoff_nogps(aTargetAltitude):
         time.sleep(1)
 
     print("Arming motors")
-    
+
     # Copter should arm in GUIDED_NOGPS mode
     vehicle.mode = VehicleMode("GUIDED_NOGPS")
     vehicle.armed = True
@@ -137,6 +137,7 @@ def set_attitude(roll_angle = 0.0, pitch_angle = 0.0,
                          0, 0, True,
                          thrust)
 
+# Some fancy math conversions to convert degrees to quaternions
 def to_quaternion(roll = 0.0, pitch = 0.0, yaw = 0.0):
     """
     Convert degrees to quaternions
