@@ -49,3 +49,10 @@ while not vehicle.is_armable:
 
 # Drone has landed
 print("Drone has landed successfully!")
+
+# Disarm and close connection
+vehicle.armed = False
+vehicle.close()
+
+# Shutdown complete
+print("Turning off the drone. Goodbye!")
