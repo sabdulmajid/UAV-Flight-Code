@@ -13,3 +13,8 @@ vehicle.mode = VehicleMode("GUIDED")
 
 # Arm the vehicle
 vehicle.armed = True
+
+# Take off to a desired height
+target_altitude = 1  # Desired altitude in meters
+print("Taking off...")
+vehicle.simple_takeoff(target_altitude)
