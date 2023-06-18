@@ -34,3 +34,6 @@ while vehicle.location.global_relative_frame.alt < target_altitude * 0.95:
         time.sleep(1)
     except Exception as e:
         print("Error retrieving sensor data:", str(e))
+
+# Reached the desired height
+print("Reached the desired height of %d meters!" % target_altitude)
