@@ -37,3 +37,15 @@ while vehicle.location.global_relative_frame.alt < target_altitude * 0.95:
 
 # Reached the desired height
 print("Reached the desired height of %d meters!" % target_altitude)
+
+# Descend and land
+print("Descending and landing...")
+vehicle.mode = VehicleMode("LAND")
+
+# Wait until the vehicle has landed
+while not vehicle.is_armable:
+    print("Waiting for vehicle to land...")
+    time.sleep(1)
+
+# Drone has landed
+print("Drone has landed successfully!")
