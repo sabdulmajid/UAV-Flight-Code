@@ -21,13 +21,13 @@ import time
 import math
 
 # Set up option parsing to get connection string
-# import argparse
-# parser = argparse.ArgumentParser(description='Control Copter and send commands in GUIDED mode ')
-# parser.add_argument('--connect',
-#                    help="Vehicle connection target string. If not specified, SITL automatically started and used.")
-# args = parser.parse_args()
+import argparse
+parser = argparse.ArgumentParser(description='Control Copter and send commands in GUIDED mode ')
+parser.add_argument('--connect',
+                   help="Vehicle connection target string. If not specified, SITL automatically started and used.")
+args = parser.parse_args()
 
-connection_string = '/dev/ttyAMA0'
+connection_string = args.connect
 sitl = None
 
 # Start SITL if no connection string specified
@@ -166,16 +166,16 @@ set_attitude(duration = 5)
 # Uncomment the lines below for testing roll angle and yaw rate.
 # Make sure that there is enough space for testing this.
 
-# set_attitude(roll_angle = 1, thrust = 0.5, duration = 3)
-# set_attitude(yaw_rate = 30, thrust = 0.5, duration = 3)
+set_attitude(roll_angle = 1, thrust = 0.5, duration = 3)
+set_attitude(yaw_rate = 30, thrust = 0.5, duration = 3)
 
 # Move the drone forward and backward.
 # Note that it will be in front of original position due to inertia.
-# print("Move forward")
-# set_attitude(pitch_angle = -5, thrust = 0.5, duration = 3.21)
+print("Move forward")
+set_attitude(pitch_angle = -5, thrust = 0.5, duration = 3.21)
 
-# print("Move backward")
-# set_attitude(pitch_angle = 5, thrust = 0.5, duration = 3)
+print("Move backward")
+set_attitude(pitch_angle = 5, thrust = 0.5, duration = 3)
 
 
 print("Setting LAND mode...")
