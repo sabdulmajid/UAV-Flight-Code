@@ -25,11 +25,9 @@ while vehicle.location.global_relative_frame.alt < target_altitude * 0.95:
         altitude = vehicle.location.global_relative_frame.alt
         latitude = vehicle.location.global_relative_frame.lat
         longitude = vehicle.location.global_relative_frame.lon
-        # Retrieve other desired sensor data here
 
         print("Ascending - Current altitude: %.2f meters" % altitude)
         print("Latitude: %.6f, Longitude: %.6f" % (latitude, longitude))
-        # Print other sensor data here
 
         time.sleep(1)
     except Exception as e:
