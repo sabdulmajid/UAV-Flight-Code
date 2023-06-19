@@ -25,7 +25,6 @@ def arm_and_takeoff(aTargetAltitude):
     # Copter should arm in GUIDED mode
     vehicle.mode = VehicleMode("GUIDED")
     vehicle.armed = True
-
     while not vehicle.armed:
         print("Waiting for arming...")
         time.sleep(1)
@@ -47,6 +46,7 @@ def arm_and_takeoff(aTargetAltitude):
         ground_speed = vehicle.groundspeed
         vertical_speed = vehicle.velocity[2]
 
+        # Print out the location, altitude, roll, pitch, yaw, battery, and velocity for the sake of debugging
         print("Altitude:", alt)
         print("Latitude: %.6f, Longitude: %.6f" % (lat, lon))
         print("Roll: %.2f, Pitch: %.2f, Yaw: %.2f" % (roll, pitch, yaw))
