@@ -37,7 +37,7 @@ def arm_and_takeoff(aTargetAltitude):
     while True:
         print("Altitude: %.2f" % vehicle.location.global_relative_frame.alt)
         # Break and return from function just below target altitude
-        if vehicle.location.global_relative_frame.alt >= aTargetAltitude * 0.95:
+        if vehicle.location.global_relative_frame.alt >= aTargetAltitude * 0.99:
             print("Reached target altitude")
             break
         time.sleep(1)
