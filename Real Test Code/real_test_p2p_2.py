@@ -58,8 +58,8 @@ right_distance = 1.5  # meters
 forward_distance = 1.5  # meters
 left_distance = 1.5  # meters
 
-# Initialize the takeoff sequence to 2m
-arm_and_takeoff(2)
+# Initialize the takeoff sequence to 1m
+arm_and_takeoff(1)
 
 print("Takeoff complete")
 

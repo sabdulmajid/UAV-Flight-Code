@@ -61,8 +61,8 @@ waypoints = [
 
 ]
 
-# Initialize the takeoff sequence to 3m
-arm_and_takeoff(3)
+# Initialize the takeoff sequence to 1m
+arm_and_takeoff(1)
 
 print("Takeoff complete")
 
