@@ -40,20 +40,12 @@ def arm_and_takeoff(aTargetAltitude):
         roll = vehicle.attitude.roll
         pitch = vehicle.attitude.pitch
         yaw = vehicle.attitude.yaw
-        voltage = vehicle.battery.voltage
-        current = vehicle.battery.current
-        remaining_battery = vehicle.battery.remaining
-        ground_speed = vehicle.groundspeed
-        vertical_speed = vehicle.velocity[2]
 
         # Print out the location, altitude, roll, pitch, yaw, battery, and velocity for the sake of debugging
         print("Altitude:", alt)
         print("Latitude: %.6f, Longitude: %.6f" % (lat, lon))
         print("Roll: %.2f, Pitch: %.2f, Yaw: %.2f" % (roll, pitch, yaw))
-        print("Voltage: %.2fV, Current: %.2fA" % (voltage, current))
-        print("Remaining Battery: %.2f%%" % remaining_battery)
-        print("Ground Speed: %.2fm/s, Vertical Speed: %.2fm/s" % (ground_speed, vertical_speed))
-
+        
         # Break and return from function just below target altitude
         if vehicle.location.global_relative_frame.alt >= aTargetAltitude * 0.99:
             print("Reached target altitude")
