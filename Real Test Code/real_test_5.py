@@ -71,7 +71,7 @@ print("Take off complete")
 # Hover for 10 seconds
 time.sleep(10)
 
-print("Now let's land")
+print("Setting mode to LAND and decreasing altitude to 0m")
 vehicle.mode = VehicleMode("LAND")
 
 # Close vehicle object
