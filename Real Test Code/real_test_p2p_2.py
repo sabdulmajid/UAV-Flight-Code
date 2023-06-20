@@ -79,6 +79,10 @@ while True:
         break
     time.sleep(1)
 
+# Hover for 5 seconds
+print("Hovering for 5 seconds at the right waypoint")
+time.sleep(5)
+
 # Move forward
 print("Moving forward")
 forward_location = LocationGlobalRelative(home_location.lat + (forward_distance / 111111), home_location.lon + (right_distance / (111111 * math.cos(home_location.lat))), home_location.alt)
@@ -92,6 +96,10 @@ while True:
         break
     time.sleep(1)
 
+# Hover for 5 seconds
+print("Hovering for 5 seconds at the forward waypoint")
+time.sleep(5)
+
 # Move to the left
 print("Moving to the left")
 left_location = LocationGlobalRelative(home_location.lat + (forward_distance / 111111), home_location.lon, home_location.alt)
@@ -104,6 +112,10 @@ while True:
         print("Reached the left waypoint")
         break
     time.sleep(1)
+
+# Hover for 5 seconds
+print("Hovering for 5 seconds at the left waypoint")
+time.sleep(5)
 
 # Return back to home location
 print("Returning home")
