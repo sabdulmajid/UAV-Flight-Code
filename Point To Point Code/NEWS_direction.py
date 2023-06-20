@@ -1,7 +1,8 @@
 from dronekit import connect, VehicleMode, LocationGlobalRelative
 from pymavlink import mavutil
 import time
-import argparse  
+import argparse
+
 parser = argparse.ArgumentParser()
 parser.add_argument('--connect', default='/dev/ttyAMA0')
 args = parser.parse_args()
