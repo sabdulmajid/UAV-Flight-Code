@@ -10,11 +10,6 @@ lon = 0
 roll = 0
 pitch = 0
 yaw = 0
-voltage = 0
-current = 0
-remaining_battery = 0
-ground_speed = 0
-vertical_speed = 0
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--connect', default='/dev/ttyAMA0')
@@ -27,7 +22,7 @@ vehicle = connect(args.connect, baud=57600, wait_ready=True)
 
 # Function to arm and then takeoff to a user specified altitude
 def arm_and_takeoff(aTargetAltitude):
-    global alt, lat, lon, roll, pitch, yaw, voltage, current, remaining_battery, ground_speed, vertical_speed
+    global alt, lat, lon, roll, pitch, yaw
 
     print("Basic pre-arm checks")
     print("Starting .....")
@@ -57,18 +52,10 @@ def arm_and_takeoff(aTargetAltitude):
         roll = vehicle.attitude.roll
         pitch = vehicle.attitude.pitch
         yaw = vehicle.attitude.yaw
-        voltage = vehicle.battery.voltage
-        current = vehicle.battery.current
-        remaining_battery = vehicle.battery.remaining
-        ground_speed = vehicle.groundspeed
-        vertical_speed = vehicle.velocity[2]
 
         print("Altitude:", alt)
         print("Latitude: %.6f, Longitude: %.6f" % (lat, lon))
         print("Roll: %.2f, Pitch: %.2f, Yaw: %.2f" % (roll, pitch, yaw))
-        print("Voltage: %.2fV, Current: %.2fA" % (voltage, current))
-        print("Remaining Battery: %.2f%%" % remaining_battery)
-        print("Ground Speed: %.2fm/s, Vertical Speed: %.2fm/s" % (ground_speed, vertical_speed))
 
         # Break and return from function just below target altitude.
         if alt >= aTargetAltitude * 0.95:
@@ -76,8 +63,8 @@ def arm_and_takeoff(aTargetAltitude):
             break
         time.sleep(1)
 
-# Initialize the takeoff sequence to 4m
-arm_and_takeoff(4)
+# Initialize the takeoff sequence to 3m
+arm_and_takeoff(3)
 
 print("Take off complete")
 
