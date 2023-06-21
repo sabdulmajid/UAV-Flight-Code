@@ -1,6 +1,7 @@
 from dronekit import connect, VehicleMode, LocationGlobalRelative
 import time
 import argparse
+from math import sqrt
 
 # Set up argument parsing
 parser = argparse.ArgumentParser()
@@ -57,7 +58,6 @@ waypoints = [
     (28.382081, 36.482996),  # Waypoint 1 - Home location
     (28.382129, 36.482940),  # Waypoint 2
     (28.382039, 36.482997),  # Waypoint 3
-
 ]
 
 # Initialize the takeoff sequence to 2m
@@ -73,7 +73,8 @@ for waypoint in waypoints:
 
     # Wait until reaching the waypoint
     while True:
-        distance = vehicle.location.global_relative_frame.distance_to(target_location)
+        distance = sqrt((vehicle.location.global_relative_frame.lat - target_location.lat)**2 +
+                        (vehicle.location.global_relative_frame.lon - target_location.lon)**2)
         if distance < 1:
             print("Reached waypoint: %s" % str(waypoint))
             break
