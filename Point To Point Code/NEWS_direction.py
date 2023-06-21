@@ -92,3 +92,4 @@ vehicle.mode = VehicleMode("LAND")
 
 # Close vehicle object
 vehicle.close()
+  
