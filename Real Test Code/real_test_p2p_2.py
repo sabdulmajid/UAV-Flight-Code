@@ -85,6 +85,7 @@ time.sleep(5)
 
 # Move forward
 print("Moving forward")
+# This calculation is used to account for the roundness of the earth (and the non-linear relationship between latitude and longitude) -> which is why you update the location using 111111 meters per degree latitude and 111111 * cos(latitude) meters per degree longitude
 forward_location = LocationGlobalRelative(home_location.lat + (forward_distance / 111111), home_location.lon + (right_distance / (111111 * math.cos(home_location.lat))), home_location.alt)
 vehicle.simple_goto(forward_location)
 
