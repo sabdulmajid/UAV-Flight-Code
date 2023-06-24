@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env/python
 
 import rospy
 from mavros_msgs.msg import CommandBool, SetMode
