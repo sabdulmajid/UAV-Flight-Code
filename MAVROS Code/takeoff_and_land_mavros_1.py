@@ -20,3 +20,12 @@ def velocity_callback(msg):
     global current_velocity
     current_velocity = msg
 
+# Function to arm the quadcopter
+def arm():
+    rospy.wait_for_service('/mavros/cmd/arming')
+    try:
+        arming_service = rospy.ServiceProxy('/mavros/cmd/arming', CommandBool)
+        arming_service(True)
+    except rospy.ServiceException as e:
+        print("Service call failed: %s" % e)
+
