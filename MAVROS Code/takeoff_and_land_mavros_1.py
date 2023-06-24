@@ -47,3 +47,12 @@ def takeoff(altitude):
     except rospy.ServiceException as e:
         print("Service call failed: %s" % e)
 
+# Function to land
+def land():
+    rospy.wait_for_service('/mavros/cmd/land')
+    try:
+        land_service = rospy.ServiceProxy('/mavros/cmd/land', CommandTOL)
+        land_service(0, 0, current_pose.pose.position.latitude, current_pose.pose.position.longitude, 0)
+    except rospy.ServiceException as e:
+        print("Service call failed: %s" % e)
+
