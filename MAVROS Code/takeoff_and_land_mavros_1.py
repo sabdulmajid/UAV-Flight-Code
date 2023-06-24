@@ -29,3 +29,12 @@ def arm():
     except rospy.ServiceException as e:
         print("Service call failed: %s" % e)
 
+# Function to set the mode of the quadcopter
+def set_mode(mode):
+    rospy.wait_for_service('/mavros/set_mode')
+    try:
+        flight_mode_service = rospy.ServiceProxy('/mavros/set_mode', SetMode)
+        flight_mode_service(custom_mode=mode)
+    except rospy.ServiceException as e:
+        print("Service call failed: %s" % e)
+
