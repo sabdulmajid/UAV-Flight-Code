@@ -38,3 +38,12 @@ def set_mode(mode):
     except rospy.ServiceException as e:
         print("Service call failed: %s" % e)
 
+# Function to takeoff
+def takeoff(altitude):
+    rospy.wait_for_service('/mavros/cmd/takeoff')
+    try:
+        takeoff_service = rospy.ServiceProxy('/mavros/cmd/takeoff', CommandTOL)
+        takeoff_service(0, 0, current_pose.pose.position.latitude, current_pose.pose.position.longitude, altitude)
+    except rospy.ServiceException as e:
+        print("Service call failed: %s" % e)
+
