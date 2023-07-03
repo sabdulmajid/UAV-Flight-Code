@@ -96,9 +96,3 @@ if __name__ == '__main__':
     arm()
 
     rospy.spin()
-
-"""
-# Path: MAVROS Code\takeoff_and_land_mavros_2.py
-#!/usr/bin/env/python
-
-"""
