@@ -33,3 +33,7 @@ class QuadcopterControl(Node):
     def velocity_callback(self, msg):
         self.current_velocity = msg
 
+    def arm(self):
+        arm_msg = CommandBool()
+        arm_msg.value = True
+        self.arm_pub.publish(arm_msg)
