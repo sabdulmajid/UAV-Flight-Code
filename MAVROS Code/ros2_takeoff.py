@@ -13,3 +13,7 @@ class QuadcopterControl(Node):
         # Global variables
         self.current_pose = PoseStamped()
         self.current_velocity = TwistStamped()
+
+        # Subscribe to pose and velocity topics
+        self.pose_sub = self.create_subscription(PoseStamped, '/mavros/local_position/pose', self.pose_callback, 10)
+        self.velocity_sub = self.create_subscription(TwistStamped, '/mavros/local_position/velocity', self.velocity_callback, 10)
