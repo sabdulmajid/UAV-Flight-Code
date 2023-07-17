@@ -26,3 +26,8 @@ class QuadcopterControl(Node):
 
         # Set the rate (in Hz) at which to publish messages
         self.rate = self.create_rate(20)
+
+    def pose_callback(self, msg):
+        self.current_pose = msg
+
+
