@@ -37,3 +37,8 @@ class QuadcopterControl(Node):
         arm_msg = CommandBool()
         arm_msg.value = True
         self.arm_pub.publish(arm_msg)
+
+    def set_mode(self, mode):
+        mode_msg = SetMode()
+        mode_msg.custom_mode = mode
+        self.mode_pub.publish(mode_msg)
