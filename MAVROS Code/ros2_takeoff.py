@@ -47,3 +47,8 @@ class QuadcopterControl(Node):
         takeoff_msg = CommandTOL()
         takeoff_msg.altitude = altitude
         self.takeoff_pub.publish(takeoff_msg)
+
+    def land(self):
+        land_msg = CommandTOL()
+        land_msg.altitude = 0
+        self.land_pub.publish(land_msg)
