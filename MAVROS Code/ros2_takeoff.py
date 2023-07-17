@@ -42,3 +42,8 @@ class QuadcopterControl(Node):
         mode_msg = SetMode()
         mode_msg.custom_mode = mode
         self.mode_pub.publish(mode_msg)
+
+    def takeoff(self, altitude):
+        takeoff_msg = CommandTOL()
+        takeoff_msg.altitude = altitude
+        self.takeoff_pub.publish(takeoff_msg)
