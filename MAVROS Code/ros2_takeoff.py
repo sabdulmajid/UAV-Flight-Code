@@ -30,4 +30,6 @@ class QuadcopterControl(Node):
     def pose_callback(self, msg):
         self.current_pose = msg
 
+    def velocity_callback(self, msg):
+        self.current_velocity = msg
 
