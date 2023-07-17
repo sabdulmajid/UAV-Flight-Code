@@ -52,3 +52,32 @@ class QuadcopterControl(Node):
         land_msg = CommandTOL()
         land_msg.altitude = 0
         self.land_pub.publish(land_msg)
+
+    def run(self):
+        # Wait for the connection to be established
+        while self.current_pose.header.seq == 0 or self.current_velocity.header.seq == 0:
+            self.rate.sleep()
+
+        # Arm the quadcopter
+        self.arm()
+
+        # Set the mode to GUIDED
+        self.set_mode('GUIDED')
+
+        # Takeoff to a specified altitude
+        self.takeoff(2.0)  # Replace with your desired takeoff altitude (in meters)
+
+        # Wait for the quadcopter to reach the desired altitude
+        while self.current_pose.pose.position.z < 1.9:  # Replace with your desired altitude minus a tolerance value
+            self.rate.sleep()
+
+        # Descend back down
+        self.set_mode('LAND')
+
+        # Wait for the quadcopter to land
+        while self.current_pose.pose.position.z > 0.1:  # Replace with your desired ground clearance (in meters)
+            self.rate.sleep()
+
+        # Disarm the quadcopter
+        self.set_mode('STABILIZE')
+        self.arm()
