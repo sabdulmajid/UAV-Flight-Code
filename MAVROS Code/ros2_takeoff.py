@@ -81,3 +81,14 @@ class QuadcopterControl(Node):
         # Disarm the quadcopter
         self.set_mode('STABILIZE')
         self.arm()
+
+def main(args=None):
+    rclpy.init(args=args)
+    quadcopter_control = QuadcopterControl()
+    quadcopter_control.run()
+    rclpy.spin(quadcopter_control)
+    quadcopter_control.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
