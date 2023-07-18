@@ -14,3 +14,11 @@ def arm_and_spin_motors():
     mode = "GUIDED"
 
     arming_client(True)
+
+    while not rospy.is_shutdown():
+        if arming_client().success:
+            rospy.loginfo("Copter armed successfully!")
+            break
+        rospy.loginfo("Arming failed. Retrying...")
+        rospy.sleep(1)
+
