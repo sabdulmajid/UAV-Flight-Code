@@ -27,3 +27,8 @@ def arm_and_spin_motors():
     actuator_pub = rospy.Publisher('/mavros/setpoint_raw/actuator_control', ActuatorControl, queue_size=10)
     rospy.sleep(1)  
 
+    actuator_msg = ActuatorControl()
+    actuator_msg.header.stamp = rospy.Time.now()
+    actuator_msg.group_mix = 0
+    actuator_msg.controls = [0, 0, 0, 0.1, 0.1, 0, 0, 0]  # Adjust motor speeds here
+
