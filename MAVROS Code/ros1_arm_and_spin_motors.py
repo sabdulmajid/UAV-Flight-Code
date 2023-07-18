@@ -7,3 +7,7 @@ from mavros_msgs.msg import ActuatorControl
 
 def arm_and_spin_motors():
     rospy.init_node('arm_and_spin_motors', anonymous=True)
+
+    arming_client = rospy.ServiceProxy('/mavros/cmd/arming', CommandBool)
+    set_mode_client = rospy.ServiceProxy('/mavros/set_mode', SetMode)
+
