@@ -22,3 +22,5 @@ def arm_and_spin_motors():
         rospy.loginfo("Arming failed. Retrying...")
         rospy.sleep(1)
 
+    set_mode_client(base_mode=0, custom_mode=mode)
+
