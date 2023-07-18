@@ -13,6 +13,9 @@ def arm_and_spin_motors():
 
     mode = "STABILIZE"
 
+    rospy.set_param('/mavros/battery/failsafe_action', 1)  # Set battery failsafe to LAND
+    rospy.set_param('/mavros/setpoint_velocity/throttle_enable', False)  # Disable throttle failsafe
+
     # Arm the vehicle
     arming_result = arming_client(True)
 
