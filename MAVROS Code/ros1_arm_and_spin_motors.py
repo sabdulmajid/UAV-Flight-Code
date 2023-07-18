@@ -11,3 +11,6 @@ def arm_and_spin_motors():
     arming_client = rospy.ServiceProxy('/mavros/cmd/arming', CommandBool)
     set_mode_client = rospy.ServiceProxy('/mavros/set_mode', SetMode)
 
+    mode = "GUIDED"
+
+    arming_client(True)
