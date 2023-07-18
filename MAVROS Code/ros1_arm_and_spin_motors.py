@@ -32,3 +32,5 @@ def arm_and_spin_motors():
     actuator_msg.group_mix = 0
     actuator_msg.controls = [0, 0, 0, 0.1, 0.1, 0, 0, 0]  # Adjust motor speeds here
 
+    actuator_pub.publish(actuator_msg)
+
