@@ -34,3 +34,7 @@ def arm_and_spin_motors():
 
     actuator_pub.publish(actuator_msg)
 
+    rospy.loginfo("Motors spinning!")
+
+    rospy.spin()
+
