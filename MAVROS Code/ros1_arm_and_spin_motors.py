@@ -24,3 +24,6 @@ def arm_and_spin_motors():
 
     set_mode_client(base_mode=0, custom_mode=mode)
 
+    actuator_pub = rospy.Publisher('/mavros/setpoint_raw/actuator_control', ActuatorControl, queue_size=10)
+    rospy.sleep(1)  
+
