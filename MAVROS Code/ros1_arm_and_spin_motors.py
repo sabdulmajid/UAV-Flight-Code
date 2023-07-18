@@ -38,3 +38,8 @@ def arm_and_spin_motors():
 
     rospy.spin()
 
+if __name__ == '__main__':
+    try:
+        arm_and_spin_motors()
+    except rospy.ROSInterruptException:
+        pass
