@@ -37,3 +37,17 @@ def detect_objects(img, net, output_layers, classes):
                 confidences.append(float(confidence))
                 class_ids.append(class_id)
 
+    indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
+    font = cv2.FONT_HERSHEY_PLAIN
+    colors = np.random.uniform(0, 255, size=(len(classes), 3))
+
+    for i in range(len(boxes)):
+        if i in indexes:
+            x, y, w, h = boxes[i]
+            label = str(classes[class_ids[i]])
+            color = colors[class_ids[i]]
+            cv2.rectangle(img, (x, y), (x + w, y + h), color, 2)
+            cv2.putText(img, label, (x, y + 30), font, 3, color, 3)
+
+    return img
+
