@@ -9,3 +9,9 @@ def load_yolo():
     layers_names = net.getLayerNames()
     output_layers = [layers_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
     return net, classes, output_layers
+
+def detect_objects(img, net, output_layers, classes):
+    height, width, channels = img.shape
+    blob = cv2.dnn.blobFromImage(img, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
+    net.setInput(blob)
+    outs = net.forward(output_layers)
