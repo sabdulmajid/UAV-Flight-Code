@@ -51,3 +51,25 @@ def detect_objects(img, net, output_layers, classes):
 
     return img
 
+def main():
+    cap = cv2.VideoCapture(0)
+
+    net, classes, output_layers = load_yolo()
+
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            break
+
+        frame = detect_objects(frame, net, output_layers, classes)
+
+        cv2.imshow('Object Detection', frame)
+
+        if cv2.waitKey(1) == 27:  # Press 'Esc' key to exit
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
+
+if __name__ == '__main__':
+    main()
