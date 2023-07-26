@@ -1,5 +1,6 @@
 from dronekit import connect, VehicleMode
 import time
+import math
 
 # Connect to the vehicle
 connection_string = '/dev/ttyAMA0' # /dev/ttyS0
