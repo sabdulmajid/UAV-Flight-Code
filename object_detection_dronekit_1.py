@@ -3,10 +3,9 @@ import dronekit
 import cv2
 
 # Connect to the drone (Assuming you have the connection string for your drone)
-vehicle = dronekit.connect('/dev/ttyUSB0', baud=57600, wait_ready=True)
+vehicle = dronekit.connect('/dev/ttyAMA0', baud=57600, wait_ready=True)
 
-# Set up the video stream (Assuming you have access to the drone's camera)
-# For example, if you are using a DJI drone with the onboard camera, you may use the DJI SDK or a separate camera module.
+# Set up the video stream
 
 # Initialize the object detection algorithm (Choose the algorithm that suits your needs)
 # For example, if you choose YOLO:
