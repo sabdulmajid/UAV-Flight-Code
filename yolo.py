@@ -4,7 +4,6 @@ import cv2 as cv
 import subprocess
 import time
 import os
-import math
 from yolo_utils import infer_image, show_image
 
 FLAGS = []
